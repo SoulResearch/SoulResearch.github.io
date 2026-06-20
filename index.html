@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Soul Research · Empathy &amp; Safe Embodied Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:   #f6f5f2;
+    --paper-2: #f1efeb;
+    --ink:     #1a1a18;
+    --muted:   #75756f;
+    --faint:   #a6a59f;
+    --line:    rgba(26,26,24,0.10);
+    --orb-core:#fff6e9;
+    --orb-mid: #f6cdb0;
+    --orb-rim: #d8d1ea;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: "Figtree", -apple-system, BlinkMacSystemFont,
+                 "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; line-height: 1.5;
+  }
+  .orb {
+    position: relative; border-radius: 50%; flex: none;
+    background: radial-gradient(circle at 38% 34%,
+      var(--orb-core) 0%, var(--orb-mid) 46%, var(--orb-rim) 82%, rgba(216,209,234,0) 100%);
+    box-shadow: 0 0 12px 2px rgba(246,205,176,0.55), 0 0 26px 6px rgba(216,209,234,0.28);
+  }
+  .orb--brand { width: 12px; height: 12px; animation: breathe 5.5s ease-in-out infinite; }
+  .orb--bullet { width: 9px; height: 9px; }
+  @keyframes breathe { 0%,100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.12); filter: brightness(1.12); } }
+
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem clamp(1.25rem, 5vw, 4rem);
+    background: rgba(246,245,242,0.72);
+    backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px);
+    border-bottom: 1px solid transparent; transition: border-color .4s ease;
+  }
+  .nav.scrolled { border-bottom-color: var(--line); }
+  .brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--ink); }
+  .brand .word { font-size: 1.06rem; letter-spacing: -0.03em; line-height: 1; }
+  .brand .word--light { font-weight: 300; }
+  .brand .word--med   { font-weight: 500; }
+  .nav-links { display: flex; gap: clamp(1rem, 3vw, 2.2rem); }
+  .nav-links a { font-size: 0.92rem; color: var(--muted); text-decoration: none; letter-spacing: -0.01em; transition: color .25s ease; }
+  .nav-links a:hover { color: var(--ink); }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding-left: clamp(1.25rem, 5vw, 4rem); padding-right: clamp(1.25rem, 5vw, 4rem); }
+  .eyebrow { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--faint); font-weight: 500; }
+
+  .hero {
+    position: relative; overflow: hidden;
+    padding-top: clamp(5rem, 16vh, 10rem); padding-bottom: clamp(5rem, 14vh, 9rem); text-align: center;
+  }
+  .hero-glow {
+    position: absolute; left: 50%; top: 38%; width: min(620px, 90vw); aspect-ratio: 1;
+    transform: translate(-50%,-50%); border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,246,233,0.85) 0%, rgba(246,205,176,0.45) 34%, rgba(216,209,234,0.22) 58%, rgba(246,245,242,0) 72%);
+    filter: blur(8px); animation: breathe-slow 7s ease-in-out infinite; pointer-events: none;
+  }
+  @keyframes breathe-slow { 0%,100% { transform: translate(-50%,-50%) scale(1); opacity: .9; } 50% { transform: translate(-50%,-50%) scale(1.08); opacity: 1; } }
+
+  .hero-inner { position: relative; z-index: 1; }
+  .hero h1 { margin: 1.4rem auto 0; max-width: 16ch; font-size: clamp(2.3rem, 6.4vw, 4.6rem); font-weight: 400; letter-spacing: -0.04em; line-height: 1.04; }
+  .hero h1 em { font-style: normal; font-weight: 300; color: var(--muted); }
+  .hero-sub { margin: 1.6rem auto 0; max-width: 46ch; font-size: clamp(1.02rem, 1.7vw, 1.22rem); color: var(--muted); letter-spacing: -0.01em; }
+
+  .section { padding-top: clamp(4.5rem, 11vh, 8rem); padding-bottom: clamp(4.5rem, 11vh, 8rem); }
+  .band { background: var(--paper-2); }
+  .lede h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 400; letter-spacing: -0.03em; line-height: 1.12; }
+  .prose { max-width: 60ch; margin-top: 1.6rem; }
+  .prose p { font-size: clamp(1.04rem, 1.55vw, 1.2rem); color: var(--muted); letter-spacing: -0.01em; }
+  .prose p + p { margin-top: 1.1rem; }
+  .prose strong { color: var(--ink); font-weight: 500; }
+  .split { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  @media (min-width: 820px) { .split { grid-template-columns: 0.8fr 1.2fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; } }
+
+  .pillars { margin-top: clamp(3rem, 7vh, 5rem); display: grid; grid-template-columns: 1fr; gap: 2.4rem; border-top: 1px solid var(--line); padding-top: clamp(2.5rem, 6vh, 4rem); }
+  @media (min-width: 760px) { .pillars { grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 5vw, 3.5rem); } }
+  .pillar h3 { display: flex; align-items: center; gap: 0.6rem; font-size: 1.18rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 0.7rem; }
+  .pillar p { color: var(--muted); font-size: 1rem; letter-spacing: -0.01em; }
+
+  .belief {
+    position: relative; overflow: hidden; text-align: center;
+    padding-top: clamp(6rem, 15vh, 10.5rem); padding-bottom: clamp(6rem, 15vh, 10.5rem);
+  }
+  .belief-glow {
+    position: absolute; left: 50%; top: 54%; transform: translate(-50%,-50%);
+    width: min(700px, 94vw); aspect-ratio: 1; border-radius: 50%;
+    background: radial-gradient(circle,
+      rgba(255,246,233,0.55) 0%, rgba(246,205,176,0.26) 38%,
+      rgba(216,209,234,0.13) 60%, rgba(246,245,242,0) 74%);
+    filter: blur(10px); animation: breathe-slow 7s ease-in-out infinite;
+    pointer-events: none; z-index: 0;
+  }
+  .belief .wrap { position: relative; z-index: 1; }
+  .belief-eyebrow { margin-bottom: clamp(1.6rem, 4vh, 2.8rem); }
+  .belief-quote {
+    margin: 0 auto; max-width: 20ch;
+    font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 300;
+    letter-spacing: -0.035em; line-height: 1.16;
+  }
+  .belief-quote .lead { color: var(--muted); }
+  .belief-quote .payoff {
+    display: block; margin-top: 0.16em; font-weight: 500;
+    color: var(--muted); opacity: 0.5;
+    transition: color 1.1s ease 0.5s, opacity 1.1s ease 0.5s;
+  }
+  .belief-quote.in .payoff { color: var(--ink); opacity: 1; }
+
+  .footer { border-top: 1px solid var(--line); padding-top: clamp(2.5rem, 6vh, 4rem); padding-bottom: clamp(2.5rem, 6vh, 4rem); }
+  .footer-row { display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; align-items: baseline; justify-content: space-between; }
+  .footer .brand .word { font-size: 1rem; }
+  .footer-tag { color: var(--faint); font-size: 0.92rem; letter-spacing: -0.01em; }
+  .footer a.mail { color: var(--ink); text-decoration: none; font-size: 0.95rem; border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: border-color .25s ease; }
+  .footer a.mail:hover { border-color: var(--ink); }
+  .copyright { margin-top: 2.2rem; color: var(--faint); font-size: 0.82rem; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; border-radius: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .orb--brand, .hero-glow, .belief-glow { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .belief-quote .payoff { transition: none; color: var(--ink); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Soul Research home">
+      <span class="word word--light">Soul</span>
+      <span class="orb orb--brand" aria-hidden="true"></span>
+      <span class="word word--med">Research</span>
+    </a>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#approach">Approach</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <h1>We build embodied intelligence that <em>understands people.</em></h1>
+      <p class="hero-sub">Soul Research is a lab developing physical AI that reads the emotional and social context of a room, acts with care, and stays safe around the people it works beside.</p>
+    </div>
+  </header>
+
+  <section class="section band" id="research">
+    <div class="wrap">
+      <div class="split">
+        <div class="lede reveal">
+          <p class="eyebrow" style="margin-bottom:1rem;">What we do</p>
+          <h2>Most embodied AI is built to finish a task. We build it to be present with people.</h2>
+        </div>
+        <div class="prose reveal">
+          <p>Embodied intelligence, machines that see, move, and act in the physical world, is arriving fast. The hard part is no longer motion. It is judgment: knowing when to yield, when to ask, when to wait, and how to remain predictable when the world around it is not.</p>
+          <p>We study the systems that give a machine that judgment. Perception that recognizes hesitation, attention, and distress. Policies that treat human comfort as a first-class objective. Behavior that is <strong>interruptible, legible, and safe by construction</strong> rather than safe by patch.</p>
+          <p>At the center is a <strong>world model</strong> that includes people. Not just objects and obstacles, but intentions, attention, and emotional state, so the system can predict how a moment will unfold and choose the action a careful person would.</p>
+          <p>We call the quality we are after a <strong>soul</strong>: not mysticism, but the interior model of other people that lets a system act with genuine care.</p>
+        </div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h3><span class="orb orb--bullet" aria-hidden="true"></span>Empathy</h3>
+          <p>Systems that model the emotional and social state of the people around them, and let that understanding shape every movement and decision.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3><span class="orb orb--bullet" aria-hidden="true"></span>Safety</h3>
+          <p>Embodied agents that are predictable, interruptible, and aligned with human intent, even under uncertainty, even when something goes wrong.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3><span class="orb orb--bullet" aria-hidden="true"></span>Embodiment</h3>
+          <p>Intelligence grounded in the physical world: perception, manipulation, and movement learned from real interaction, not text alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section belief" id="approach">
+    <div class="belief-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow belief-eyebrow reveal">Approach</p>
+      <blockquote class="belief-quote reveal">
+        <span class="lead">A machine that truly understands people is</span>
+        <span class="payoff">safer to be near.</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <footer class="section footer" id="contact">
+    <div class="wrap">
+      <div class="footer-row">
+        <a class="brand" href="#top" aria-label="Soul Research">
+          <span class="word word--light">Soul</span>
+          <span class="orb orb--bullet" aria-hidden="true" style="margin:0 1px;"></span>
+          <span class="word word--med">Research</span>
+        </a>
+        <span class="footer-tag">Empathy &amp; safe embodied intelligence.</span>
+      </div>
+      <p class="copyright">© 2026 Soul Research. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const items = document.querySelectorAll('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('in'));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.18 });
+      items.forEach(el => io.observe(el));
+    }
+  </script>
+</body>
+</html>
