@@ -783,7 +783,7 @@ a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-o
 }
 .diagram-col { text-align: center; }
 .diagram-col h4 {
-  margin-top: 0.75rem;
+  margin-top: 0.55rem;
   font-size: 0.92rem;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -794,6 +794,14 @@ a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-o
   color: var(--muted);
   line-height: 1.4;
 }
+.topo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.topo text { font-family: "Figtree", system-ui, sans-serif; }
 .hub-map {
   position: relative;
   min-height: 168px;

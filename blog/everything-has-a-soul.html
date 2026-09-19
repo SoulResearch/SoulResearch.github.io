@@ -79,32 +79,72 @@
           <p class="diagram-label">Figure 1 · Topology</p>
           <div class="diagram-split">
             <div class="diagram-col">
-              <div class="hub-map">
-                <div class="node-ring">
-                  <span class="node-pill">cube</span>
-                  <span class="node-pill">book</span>
-                  <span class="node-pill">robot</span>
-                  <span class="node-pill">vase</span>
-                  <span class="node-pill">lamp</span>
-                </div>
-                <div class="hub-core">Global solver</div>
-              </div>
+              <svg class="topo" viewBox="0 0 280 240" role="img" aria-label="Uniform-physics paradigm: passive assets feed a global solver">
+                <defs>
+                  <marker id="arr-in" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 1.2 L 10 5 L 0 8.8 Z" fill="#9a9892"/>
+                  </marker>
+                </defs>
+                <g stroke="#c5c2ba" stroke-width="1.1" fill="none" marker-end="url(#arr-in)">
+                  <line x1="140" y1="28" x2="140" y2="92"/>
+                  <line x1="236" y1="88" x2="188" y2="108"/>
+                  <line x1="214" y1="196" x2="174" y2="148"/>
+                  <line x1="66" y1="196" x2="106" y2="148"/>
+                  <line x1="44" y1="88" x2="92" y2="108"/>
+                </g>
+                <rect x="96" y="104" width="88" height="32" rx="2" fill="#f3d5c0"/>
+                <text x="140" y="124" text-anchor="middle" fill="#1a1a18" font-size="11" font-weight="500">Global solver</text>
+                <circle cx="140" cy="22" r="16" fill="#e8e6e1"/>
+                <circle cx="244" cy="82" r="16" fill="#e8e6e1"/>
+                <circle cx="220" cy="208" r="16" fill="#e8e6e1"/>
+                <circle cx="60" cy="208" r="16" fill="#e8e6e1"/>
+                <circle cx="36" cy="82" r="16" fill="#e8e6e1"/>
+                <text x="140" y="26" text-anchor="middle" fill="#1a1a18" font-size="10">cube</text>
+                <text x="244" y="86" text-anchor="middle" fill="#1a1a18" font-size="10">book</text>
+                <text x="220" y="212" text-anchor="middle" fill="#1a1a18" font-size="10">lamp</text>
+                <text x="60" y="212" text-anchor="middle" fill="#1a1a18" font-size="10">robot</text>
+                <text x="36" y="86" text-anchor="middle" fill="#1a1a18" font-size="10">vase</text>
+              </svg>
               <h4>Uniform physics</h4>
               <p>Passive assets send parameters to one solve. Intelligence is central.</p>
             </div>
             <div class="diagram-col">
-              <div class="director-chip">Director<span>environment agent</span></div>
-              <div class="hub-map">
-                <div class="node-ring">
-                  <span class="node-pill node-pill--agent">air</span>
-                  <span class="node-pill node-pill--agent">book</span>
-                  <span class="node-pill node-pill--agent">robot</span>
-                  <span class="node-pill node-pill--agent">vase</span>
-                  <span class="node-pill node-pill--agent">lamp</span>
-                </div>
-              </div>
+              <svg class="topo" viewBox="0 0 280 240" role="img" aria-label="Agentic paradigm: objects exchange messages under a thin Director">
+                <defs>
+                  <marker id="arr-msg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                    <path d="M 0 1.2 L 10 5 L 0 8.8 Z" fill="#8d8899"/>
+                  </marker>
+                </defs>
+                <rect x="96" y="8" width="88" height="30" rx="2" fill="#f3eadc"/>
+                <text x="140" y="20" text-anchor="middle" fill="#1a1a18" font-size="11" font-weight="500">Director</text>
+                <text x="140" y="32" text-anchor="middle" fill="#75756f" font-size="8">environment agent</text>
+                <g stroke="#c5c2ba" stroke-width="1" stroke-dasharray="3 2.5" fill="none">
+                  <line x1="140" y1="38" x2="52" y2="86"/>
+                  <line x1="140" y1="38" x2="140" y2="86"/>
+                  <line x1="140" y1="38" x2="228" y2="86"/>
+                </g>
+                <g stroke="#9a96a8" stroke-width="1.15" fill="none" marker-end="url(#arr-msg)">
+                  <line x1="68" y1="102" x2="118" y2="102"/>
+                  <line x1="162" y1="102" x2="212" y2="102"/>
+                  <line x1="52" y1="118" x2="88" y2="168"/>
+                  <line x1="228" y1="118" x2="192" y2="168"/>
+                  <line x1="108" y1="184" x2="172" y2="184"/>
+                </g>
+                <text x="140" y="96" text-anchor="middle" fill="#9a96a8" font-size="8">kin</text>
+                <text x="140" y="198" text-anchor="middle" fill="#9a96a8" font-size="8">tact</text>
+                <circle cx="52" cy="102" r="16" fill="#dcd6ea"/>
+                <circle cx="140" cy="102" r="16" fill="#dcd6ea"/>
+                <circle cx="228" cy="102" r="16" fill="#dcd6ea"/>
+                <circle cx="92" cy="184" r="16" fill="#dcd6ea"/>
+                <circle cx="188" cy="184" r="16" fill="#dcd6ea"/>
+                <text x="52" y="106" text-anchor="middle" fill="#1a1a18" font-size="10">air</text>
+                <text x="140" y="106" text-anchor="middle" fill="#1a1a18" font-size="10">vase</text>
+                <text x="228" y="106" text-anchor="middle" fill="#1a1a18" font-size="10">lamp</text>
+                <text x="92" y="188" text-anchor="middle" fill="#1a1a18" font-size="10">book</text>
+                <text x="188" y="188" text-anchor="middle" fill="#1a1a18" font-size="10">robot</text>
+              </svg>
               <h4>Agentic</h4>
-              <p>Every object is an agent. Interaction is typed messages. Arbitration is thin.</p>
+              <p>Every object is an agent. Solid arrows are messages. Dashed lines are thin arbitration.</p>
             </div>
           </div>
         </div>
