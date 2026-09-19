@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Everything Has a Soul · Soul Research</title>
-<meta name="description" content="Everything Has a Soul: an agentic simulation ontology from Soul Research in which every object carries a soul, senses, and skills." />
+<meta name="description" content="Everything Has a Soul: a Soul Research position paper on agentic simulation, the SOUL architecture, and behavioral sufficiency." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body class="page-blog">
   <nav class="nav" id="nav">
     <a class="brand" href="../index.html" aria-label="Soul Research home">
       <span class="word word--light">Soul</span>
@@ -25,7 +25,7 @@
   </nav>
 
   <header class="article-hero">
-    <div class="wrap reveal">
+    <div class="wrap">
       <p class="article-kicker">
         <span class="orb orb--bullet" aria-hidden="true"></span>
         Research
@@ -35,57 +35,57 @@
         <span>An Agent for Every Object in Simulation</span>
       </h1>
       <p class="article-dek">
-        A position, formalism, and architecture for simulators in which every object is an AI agent, interaction is negotiated once, and classical physics is spent only where contact decides the task.
+        A position paper: treat every simulated object as an agent with a soul, senses, and skills; negotiate interaction once; reserve classical physics for contact-critical work.
       </p>
       <p class="article-byline">
         Shryas Bhurat and Saket Pradhan · Soul Research · UC Berkeley · University of Michigan · September 2026
       </p>
     </div>
-    <div class="article-hero-media reveal" aria-hidden="true">
-      <figure><img src="assets/case_vase_hero.jpg" alt="" width="1600" height="1890" decoding="async" fetchpriority="high"></figure>
-      <figure><img src="assets/case_lamp_a.jpg" alt="" width="1463" height="2400" decoding="async"></figure>
-      <figure><img src="assets/case_bottle_hero.jpg" alt="" width="1600" height="1537" decoding="async"></figure>
+    <div class="article-hero-media">
+      <figure>
+        <img src="assets/case_vase_banner.jpg" alt="Measured flower vase used as a household reference object in the paper" width="1523" height="652" decoding="async" fetchpriority="high">
+      </figure>
     </div>
   </header>
 
   <article class="article">
     <div class="wrap">
       <div class="article-body">
-        <p class="lede-block reveal">
-          A position paper and architecture for agentic simulation: an ontology, the SOUL reference system, measured reference clips from the physical world, and a pre-registered evaluation program with stated falsification criteria for each thesis.
+        <p class="lede-block">
+          The document specifies an ontology, the SOUL reference architecture, measured household reference clips, and an evaluation program with falsification criteria for each thesis. It reports no benchmark results.
         </p>
 
-        <p class="reveal">
+        <p>
           Open Isaac Sim, MuJoCo, Unity, or Unreal and import a cube. The workflow has been stable for decades. The cube receives mass, friction, restitution, roughness, luminosity. Those scalars are handed to one global solver that applies uniform physics to every body it steps. Interaction is whatever falls out of the solve. The object contributes parameters. Consequences are derived centrally.
         </p>
-        <p class="reveal">
+        <p>
           That stack is a genuine achievement. Our question is architectural only: must all understanding of behavior live in one central solver, or can it be distributed across coordinated agents, one per object, each responsible for its own?
         </p>
 
-        <div class="pull reveal">
+        <div class="pull">
           Everything has a soul, and therefore everything is a robot.
         </div>
 
-        <p class="reveal">
+        <p>
           Under the agentic ontology, a book is not a mesh with a mass. It is an agent that knows how to be a book: rest, open, flutter in wind, fall, thud, settle. A vase knows how flowers ruffle as air speed rises. A sanitizer bottle knows that a press on its cap dispenses a small, slightly variable volume with a pump click. A lamp knows its switch. None of these facts need to be consequences of a global solve. They are behaviors: entries in a charter, enacted on demand, negotiated in context.
         </p>
 
-        <h2 class="reveal">Two paradigms</h2>
-        <p class="reveal">
+        <h2>Two paradigms</h2>
+        <p>
           The paper contrasts the uniform-physics paradigm with an agentic one. On the left, passive assets feed a global solver. On the right, objects, fields, and the environment itself are agents that exchange typed messages, with a Director arbitrating thinly.
         </p>
 
-        <figure class="figure figure--wide reveal">
+        <figure class="figure">
           <img src="assets/fig1_two_paradigms.png" alt="Figure 1 from the paper: topology of the uniform-physics and agentic paradigms" loading="lazy" decoding="async">
           <figcaption>Figure 1. Left: passive assets contribute parameters to one central solve. Right: a society of agents interacting by typed message exchange, with the Director arbitrating.</figcaption>
         </figure>
 
-        <h2 class="reveal">Three theses</h2>
-        <p class="reveal">
+        <h2>Three theses</h2>
+        <p>
           The argument rests on three claims. Each is paired with a named experiment in the evaluation program that can falsify it.
         </p>
 
-        <div class="thesis-grid reveal">
+        <div class="thesis-grid">
           <div class="thesis">
             <p class="num">Thesis 01</p>
             <h3>Behavioral sufficiency</h3>
@@ -103,12 +103,12 @@
           </div>
         </div>
 
-        <h2 class="reveal">Soul, senses, skills</h2>
-        <p class="reveal">
+        <h2>Soul, senses, skills</h2>
+        <p>
           The ontology’s triad is simple. Every object has a <strong>soul</strong> (a natural-language charter of identity, personality, repertoire, and limits), <strong>senses</strong> (a sensorium in its own form), and <strong>skills</strong> (behaviors over its own degrees of freedom). An object with all three is, functionally, a robot.
         </p>
 
-        <div class="triad reveal">
+        <div class="triad">
           <div class="triad-card">
             <img src="assets/case_bottle_hero.jpg" alt="Sanitizer bottle used as a case study object" loading="lazy" decoding="async">
             <div class="body">
@@ -132,17 +132,17 @@
           </div>
         </div>
 
-        <figure class="figure figure--wide reveal">
+        <figure class="figure">
           <img src="assets/fig2_paradigm_glance.png" alt="Figure 2 from the paper: the paradigm at a glance with Director, soul, senses, skills, and one-way mirror" loading="lazy" decoding="async">
           <figcaption>Figure 2 from the paper. Every object carries a soul, a sensorium, and skills. Interactions are negotiated once, compiled, and enacted from cache. The learning agent stands behind a one-way mirror.</figcaption>
         </figure>
 
-        <h2 class="reveal">Negotiate once, enact forever</h2>
-        <p class="reveal">
+        <h2>Negotiate once, enact forever</h2>
+        <p>
           Language is the compiler of the world’s dynamics, not its interpreter at every timestep. Novel interactions are negotiated on a slow cognition plane, then compiled into cheap stochastic processes on a fast enactment plane. As the interaction cache fills, language-model invocations per simulated second decay toward zero.
         </p>
 
-        <div class="planes reveal">
+        <div class="planes">
           <div class="plane plane--cog">
             <h3><span class="swatch swatch--peach"></span>Cognition plane</h3>
             <p>Speech-act negotiation with an LLM. PROPOSE, COMMIT, validate, compile. Rare, expensive, and reusable.</p>
@@ -154,17 +154,17 @@
           </div>
         </div>
 
-        <figure class="figure figure--wide reveal">
+        <figure class="figure">
           <img src="assets/fig11_soul_architecture.png" alt="Figure 11 from the paper: SOUL architecture with Director, cognition plane, enactment plane, Chronicle, and host engine" loading="lazy" decoding="async">
           <figcaption>Figure 11 from the paper. SOUL routes novel interactions through cognition, then replay through enactment. An invariant layer holds veto power. The host engine renders and runs classical solver islands only where escalation demands trajectory-level accuracy.</figcaption>
         </figure>
 
-        <h2 class="reveal">The one-way mirror</h2>
-        <p class="reveal">
+        <h2>The one-way mirror</h2>
+        <p>
           The robot being trained is an agent in the world, but not a member of its backstage. It perceives rendered pixels, depth, proprioception, and contact forces. It never reads souls or messages. The message plane has no counterpart in reality. A policy that conditioned on it would break at deployment. Isolation is architectural.
         </p>
 
-        <div class="mirror reveal">
+        <div class="mirror">
           <div class="mirror-row">
             <div class="backstage">
               <h4>Backstage</h4>
@@ -177,12 +177,12 @@
           </div>
         </div>
 
-        <h2 class="reveal">What the footage says</h2>
-        <p class="reveal">
+        <h2>What the footage says</h2>
+        <p>
           Part II of the paper works ordinary household objects as case studies: sanitizer bottle, table lamp, flower vase, cabinet drawer, deformable teddy bear, and cloth. Measured clips fix reference behaviors the system must reproduce. Authored souls and negotiations show how those behaviors are declared. No result about the built system is claimed as a benchmark.
         </p>
 
-        <div class="sequence reveal" aria-label="Sanitizer bottle actuation sequence from the paper">
+        <div class="sequence" aria-label="Sanitizer bottle actuation sequence from the paper">
           <figure><img src="assets/bottle_frame_3813.jpg" alt="Finger approaching sanitizer pump" loading="lazy" decoding="async"></figure>
           <figure><img src="assets/bottle_frame_3815.jpg" alt="Contact with sanitizer pump" loading="lazy" decoding="async"></figure>
           <figure><img src="assets/bottle_frame_3817.jpg" alt="Pump beginning to depress" loading="lazy" decoding="async"></figure>
@@ -190,11 +190,11 @@
           <figure><img src="assets/bottle_frame_3821.jpg" alt="Pump releasing" loading="lazy" decoding="async"></figure>
           <figure><img src="assets/bottle_frame_3823.jpg" alt="Pump returning" loading="lazy" decoding="async"></figure>
         </div>
-        <p class="figure-note reveal">
+        <p class="figure-note">
           Measured sanitizer actuation sequence from the paper’s case studies. Behavior is compact: press, dispense, click, recover.
         </p>
 
-        <div class="case-grid reveal">
+        <div class="case-grid">
           <div class="case">
             <img src="assets/case_lamp_b.jpg" alt="Table lamp illuminated in a quiet room" loading="lazy" decoding="async">
             <div class="body">
@@ -225,17 +225,17 @@
           </div>
         </div>
 
-        <h2 class="reveal">A single escalation rule</h2>
-        <p class="reveal">
+        <h2>A single escalation rule</h2>
+        <p>
           Trajectory-level physics is not retired. It becomes a budgeted resource. Ambient content can run hot: any plausible ruffle is a correct ruffle. Task-critical contact runs cold. Escalation collapses the distribution to a solver island for the duration of criticality. Physics where it matters. Behavior everywhere else.
         </p>
 
-        <h2 class="reveal">Evaluation program</h2>
-        <p class="reveal">
+        <h2>Evaluation program</h2>
+        <p>
           Every thesis has pre-registered success targets and falsification criteria. The Ruffle Test asks whether agentic worlds are indistinguishable in distribution from real or solver references at behavior level. Authoring, amortization, transfer, grounding, and openness are specified the same way.
         </p>
 
-        <div class="infographic reveal">
+        <div class="infographic">
           <p class="infographic-label">Evaluation</p>
           <h3 class="infographic-title">Program at a glance</h3>
           <table class="eval-table">
@@ -276,19 +276,16 @@
           </table>
         </div>
 
-        <h2 class="reveal">Scope of the claim</h2>
-        <p class="reveal">
+        <h2>Scope of the claim</h2>
+        <p>
           We do not claim language-mediated behavior matches solver physics at trajectory level. We claim that at behavior level, agentic worlds can be made indistinguishable in distribution for broad classes of everyday interaction; that policies trained in such worlds can transfer no worse where behavioral richness matters; and that the cost of a populated, authored world falls as negotiation amortizes into playback.
         </p>
-        <p class="reveal">
+        <p>
           The document is organized so it need not be read in full: Part I is the argument, Part II the case studies and measurements, Part III the buildable specification, Part IV the extended discussion. The work is a specified research program in service of a simple view of the field: embodied intelligence should understand, and stay safe around, the people it works beside.
         </p>
 
-        <div class="pull reveal">
-          Physics where it matters. Behavior everywhere else.
-        </div>
 
-        <p class="article-end reveal">
+        <p class="article-end">
           <a class="btn btn--ghost" href="./">Return to blog</a>
         </p>
       </div>
