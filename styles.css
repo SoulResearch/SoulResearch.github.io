@@ -111,11 +111,15 @@ body {
 }
 .belief-quote.in .payoff { color: var(--ink); opacity: 1; }
 
-.footer { border-top: 1px solid var(--line); padding-top: clamp(2.5rem, 6vh, 4rem); padding-bottom: clamp(2.5rem, 6vh, 4rem); }
-.footer-row { display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; align-items: baseline; justify-content: space-between; }
+.footer {
+  border-top: 1px solid var(--line);
+  padding-top: clamp(1.6rem, 4vh, 2.4rem);
+  padding-bottom: clamp(1.6rem, 4vh, 2.4rem);
+}
+.footer-row { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: baseline; justify-content: space-between; }
 .footer .brand .word { font-size: 1rem; }
-.footer-tag { color: var(--faint); font-size: 0.92rem; letter-spacing: -0.01em; }
-.copyright { margin-top: 2.2rem; color: var(--faint); font-size: 0.82rem; }
+.footer-tag { color: var(--faint); font-size: 0.9rem; letter-spacing: -0.01em; }
+.copyright { margin-top: 1.2rem; color: var(--faint); font-size: 0.8rem; }
 
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
 .reveal.in { opacity: 1; transform: none; }
@@ -133,35 +137,37 @@ a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-o
 
 /* Blog listing */
 .page-header {
-  padding-top: clamp(3.5rem, 8vh, 5.5rem);
-  padding-bottom: clamp(2rem, 5vh, 3rem);
+  padding-top: clamp(2.8rem, 6vh, 4rem);
+  padding-bottom: clamp(1.4rem, 3.5vh, 2.2rem);
   border-bottom: 1px solid var(--line);
-  text-align: center;
+  text-align: left;
 }
+.page-header .wrap { max-width: 880px; }
 .page-header h1 {
-  margin-top: 0.7rem;
-  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  margin-top: 0.45rem;
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
   font-weight: 400;
   letter-spacing: -0.035em;
 }
 .page-header p {
-  margin: 0.75rem auto 0;
-  max-width: 42ch;
+  margin: 0.55rem 0 0;
+  max-width: 46ch;
   color: var(--muted);
-  font-size: 1.02rem;
+  font-size: 1rem;
 }
-.blog-list { padding: clamp(2rem, 5vh, 3.2rem) 0; }
+.blog-list { padding: clamp(1.4rem, 3.5vh, 2.2rem) 0 clamp(2rem, 5vh, 3rem); }
+.blog-list .wrap { max-width: 880px; }
 .blog-item {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.2rem;
-  padding: clamp(1.3rem, 3vh, 1.8rem) 0;
+  gap: 1rem;
+  padding: clamp(1.1rem, 2.5vh, 1.5rem) 0;
   border-bottom: 1px solid var(--line);
   text-decoration: none;
   color: inherit;
 }
 @media (min-width: 780px) {
-  .blog-item { grid-template-columns: 1fr 1.35fr; align-items: center; gap: 1.8rem; }
+  .blog-item { grid-template-columns: 0.9fr 1.4fr; align-items: center; gap: 1.5rem; }
 }
 .blog-item:hover .blog-title { color: var(--muted); }
 .blog-thumb {
@@ -175,22 +181,32 @@ a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-o
 }
 .blog-item:hover .blog-thumb img { transform: scale(1.03); }
 .blog-meta {
-  display: flex; flex-wrap: wrap; gap: 0.5rem 1.1rem;
-  font-size: 0.8rem; color: var(--faint); letter-spacing: 0.04em; text-transform: uppercase;
+  display: flex; flex-wrap: wrap; gap: 0.45rem 1rem;
+  font-size: 0.76rem; color: var(--faint); letter-spacing: 0.04em; text-transform: uppercase;
 }
 .blog-title {
-  margin-top: 0.55rem;
-  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  margin-top: 0.4rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
   font-weight: 400;
   letter-spacing: -0.025em;
-  line-height: 1.2;
+  line-height: 1.25;
   transition: color .25s ease;
 }
 .blog-excerpt {
-  margin-top: 0.7rem;
+  margin-top: 0.5rem;
   color: var(--muted);
-  font-size: 1.02rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
   max-width: 54ch;
+}
+.figure-note {
+  font-size: 0.84rem;
+  color: var(--faint);
+  margin-top: 0.45rem;
+  line-height: 1.45;
+}
+.article-end {
+  margin-top: 1.5rem;
 }
 
 /* Article */
