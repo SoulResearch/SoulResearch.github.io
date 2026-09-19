@@ -705,6 +705,7 @@ a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-o
 }
 @media (min-width: 700px) {
   .case-grid { grid-template-columns: 1fr 1fr; }
+  .case-grid:has(.case:only-child) { grid-template-columns: 1fr; max-width: 28rem; }
 }
 .case {
   border: 1px solid var(--line);
