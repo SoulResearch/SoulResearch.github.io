@@ -683,6 +683,20 @@ a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-o
   filter: saturate(0.9) contrast(1.05);
 }
 
+.clip {
+  margin: 0.85rem 0 0.2rem;
+  overflow: hidden;
+  background: #ececec;
+  aspect-ratio: 16 / 9;
+}
+.clip img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
 .case-grid {
   display: grid;
   grid-template-columns: 1fr;
