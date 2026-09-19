@@ -944,6 +944,15 @@ a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-o
   .arch-mid { grid-template-columns: 0.7fr 1.4fr 0.7fr; align-items: stretch; }
 }
 
+.study { margin: 1.2rem 0 1.55rem; }
+.study .clip {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-bottom: 0;
+}
+.study .chat { margin: 0; }
+.study .figure-note { margin-top: 0.45rem !important; }
+
 /* Chronicle chat */
 .chat {
   margin: 1rem 0;
