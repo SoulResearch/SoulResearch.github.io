@@ -43,6 +43,11 @@
         <a class="btn btn--ghost" href="./">All writing</a>
       </div>
     </div>
+    <div class="article-hero-media reveal" aria-hidden="true">
+      <figure><img src="assets/case_vase_hero.jpg" alt="" width="1600" height="1890" decoding="async" fetchpriority="high"></figure>
+      <figure><img src="assets/case_lamp_a.jpg" alt="" width="1463" height="2400" decoding="async"></figure>
+      <figure><img src="assets/case_bottle_hero.jpg" alt="" width="1600" height="1537" decoding="async"></figure>
+    </div>
   </header>
 
   <article class="article">
@@ -83,9 +88,9 @@
                 <div class="hub-core">Global solver</div>
                 <div class="hub-ring">
                   <span class="node">cube</span>
-                  <span class="node node--photo"><img src="assets/case_bottle_hero.jpg" alt=""></span>
-                  <span class="node node--photo"><img src="assets/case_lamp_a.jpg" alt=""></span>
-                  <span class="node node--photo"><img src="assets/case_vase_hero.jpg" alt=""></span>
+                  <span class="node node--photo"><img src="assets/case_bottle_hero.jpg" alt="" loading="lazy" decoding="async"></span>
+                  <span class="node node--photo"><img src="assets/case_lamp_a.jpg" alt="" loading="lazy" decoding="async"></span>
+                  <span class="node node--photo"><img src="assets/case_vase_hero.jpg" alt="" loading="lazy" decoding="async"></span>
                   <span class="node">robot</span>
                 </div>
               </div>
@@ -96,9 +101,9 @@
               <div class="agent-net">
                 <div class="director-chip">Director · environment agent</div>
                 <span class="node">air</span>
-                <span class="node node--photo"><img src="assets/case_bottle_hero.jpg" alt=""></span>
-                <span class="node node--photo"><img src="assets/case_lamp_a.jpg" alt=""></span>
-                <span class="node node--photo"><img src="assets/case_vase_hero.jpg" alt=""></span>
+                <span class="node node--photo"><img src="assets/case_bottle_hero.jpg" alt="" loading="lazy" decoding="async"></span>
+                <span class="node node--photo"><img src="assets/case_lamp_a.jpg" alt="" loading="lazy" decoding="async"></span>
+                <span class="node node--photo"><img src="assets/case_vase_hero.jpg" alt="" loading="lazy" decoding="async"></span>
                 <span class="node">lamp</span>
                 <span class="node">robot</span>
               </div>
@@ -112,7 +117,7 @@
         </div>
 
         <figure class="figure figure--wide reveal">
-          <img src="assets/fig1_two_paradigms.png" alt="Figure 1 from the paper: topology of the uniform-physics and agentic paradigms" />
+          <img src="assets/fig1_two_paradigms.png" alt="Figure 1 from the paper: topology of the uniform-physics and agentic paradigms" / loading="lazy" decoding="async">
           <figcaption>Figure 1 from the paper. Left: passive assets contribute parameters to one central solve. Right: a society of agents interacting by typed message exchange, with the Director arbitrating.</figcaption>
         </figure>
 
@@ -146,21 +151,21 @@
 
         <div class="triad reveal">
           <div class="triad-card">
-            <img src="assets/case_bottle_hero.jpg" alt="Sanitizer bottle used as a case study object" />
+            <img src="assets/case_bottle_hero.jpg" alt="Sanitizer bottle used as a case study object" / loading="lazy" decoding="async">
             <div class="body">
               <h3>Soul</h3>
               <p>A versioned charter: what the object is, what it can do, and within what physical limits. Authorable in paragraphs rather than solver archaeology.</p>
             </div>
           </div>
           <div class="triad-card">
-            <img src="assets/case_lamp_a.jpg" alt="Table lamp used as a case study object" />
+            <img src="assets/case_lamp_a.jpg" alt="Table lamp used as a case study object" / loading="lazy" decoding="async">
             <div class="body">
               <h3>Senses</h3>
               <p>Not every agent needs eyes. The bottle reads pressure on its pump. The lamp reads its switch. Delivery is filtered by what the sensorium can receive.</p>
             </div>
           </div>
           <div class="triad-card">
-            <img src="assets/case_vase_hero.jpg" alt="Flower vase used as a case study object" />
+            <img src="assets/case_vase_hero.jpg" alt="Flower vase used as a case study object" / loading="lazy" decoding="async">
             <div class="body">
               <h3>Skills</h3>
               <p>Named, parameterized stochastic behaviors. Flutter, dispense, toggle, ruffle, thud. Sampled from distributions, compiled after negotiation.</p>
@@ -169,7 +174,7 @@
         </div>
 
         <figure class="figure figure--wide reveal">
-          <img src="assets/fig2_paradigm_glance.png" alt="Figure 2 from the paper: the paradigm at a glance with Director, soul, senses, skills, and one-way mirror" />
+          <img src="assets/fig2_paradigm_glance.png" alt="Figure 2 from the paper: the paradigm at a glance with Director, soul, senses, skills, and one-way mirror" / loading="lazy" decoding="async">
           <figcaption>Figure 2 from the paper. Every object carries a soul, a sensorium, and skills. Interactions are negotiated once, compiled, and enacted from cache. The learning agent stands behind a one-way mirror.</figcaption>
         </figure>
 
@@ -191,7 +196,7 @@
         </div>
 
         <figure class="figure figure--wide reveal">
-          <img src="assets/fig11_soul_architecture.png" alt="Figure 11 from the paper: SOUL architecture with Director, cognition plane, enactment plane, Chronicle, and host engine" />
+          <img src="assets/fig11_soul_architecture.png" alt="Figure 11 from the paper: SOUL architecture with Director, cognition plane, enactment plane, Chronicle, and host engine" / loading="lazy" decoding="async">
           <figcaption>Figure 11 from the paper. SOUL routes novel interactions through cognition, then replay through enactment. An invariant layer holds veto power. The host engine renders and runs classical solver islands only where escalation demands trajectory-level accuracy.</figcaption>
         </figure>
 
@@ -219,12 +224,12 @@
         </p>
 
         <div class="sequence reveal" aria-label="Sanitizer bottle actuation sequence from the paper">
-          <figure><img src="assets/bottle_frame_3813.jpg" alt="Finger approaching sanitizer pump"></figure>
-          <figure><img src="assets/bottle_frame_3815.jpg" alt="Contact with sanitizer pump"></figure>
-          <figure><img src="assets/bottle_frame_3817.jpg" alt="Pump beginning to depress"></figure>
-          <figure><img src="assets/bottle_frame_3819.jpg" alt="Pump depressed"></figure>
-          <figure><img src="assets/bottle_frame_3821.jpg" alt="Pump releasing"></figure>
-          <figure><img src="assets/bottle_frame_3823.jpg" alt="Pump returning"></figure>
+          <figure><img src="assets/bottle_frame_3813.jpg" alt="Finger approaching sanitizer pump" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/bottle_frame_3815.jpg" alt="Contact with sanitizer pump" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/bottle_frame_3817.jpg" alt="Pump beginning to depress" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/bottle_frame_3819.jpg" alt="Pump depressed" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/bottle_frame_3821.jpg" alt="Pump releasing" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/bottle_frame_3823.jpg" alt="Pump returning" loading="lazy" decoding="async"></figure>
         </div>
         <p class="reveal" style="font-size:0.88rem;color:var(--faint);margin-top:0.6rem;">
           Measured sanitizer actuation sequence from the paper’s case studies. Behavior is compact: press, dispense, click, recover.
@@ -232,28 +237,28 @@
 
         <div class="case-grid reveal">
           <div class="case">
-            <img src="assets/case_lamp_b.jpg" alt="Table lamp illuminated in a quiet room" />
+            <img src="assets/case_lamp_b.jpg" alt="Table lamp illuminated in a quiet room" / loading="lazy" decoding="async">
             <div class="body">
               <h3>Table lamp</h3>
               <p>Switch toggles luminous state. The light field agent responds. A simple discrete mode with graded appearance.</p>
             </div>
           </div>
           <div class="case">
-            <img src="assets/case_vase_hero.jpg" alt="Flowers in a glass vase outdoors" />
+            <img src="assets/case_vase_hero.jpg" alt="Flowers in a glass vase outdoors" / loading="lazy" decoding="async">
             <div class="body">
               <h3>Flower vase</h3>
               <p>Wind proposes. The vase commits to a graded ruffle. Petal-exact trajectories are refused as the fidelity target.</p>
             </div>
           </div>
           <div class="case">
-            <img src="assets/case_drawer_b.jpg" alt="Robotic arm pulling a cabinet drawer" />
+            <img src="assets/case_drawer_b.jpg" alt="Robotic arm pulling a cabinet drawer" / loading="lazy" decoding="async">
             <div class="body">
               <h3>Cabinet drawer</h3>
               <p>Stick, slide, stop. Behavior that today lives in friction archaeology becomes a paragraph in a soul.</p>
             </div>
           </div>
           <div class="case">
-            <img src="assets/case_teddy.jpg" alt="Deformable teddy bear" />
+            <img src="assets/case_teddy.jpg" alt="Deformable teddy bear" / loading="lazy" decoding="async">
             <div class="body">
               <h3>Deformables</h3>
               <p>Teddy and cloth mark the hard boundary: escalate to classical solvers where task reward depends on dense contact.</p>
