@@ -43,7 +43,7 @@
     </div>
     <div class="article-hero-media">
       <figure>
-        <img src="assets/case_teddy.jpg" alt="Robot gripper holding a teddy bear" width="1600" height="1500" decoding="async" fetchpriority="high">
+        <img src="assets/teddy_lift.gif" alt="Robot arm lifting a teddy bear" width="560" height="317" decoding="async" fetchpriority="high">
       </figure>
     </div>
   </header>
@@ -75,10 +75,39 @@
           The paper contrasts the uniform-physics paradigm with an agentic one. On the left, passive assets feed a global solver. On the right, objects, fields, and the environment itself are agents that exchange typed messages, with a Director arbitrating thinly.
         </p>
 
-        <figure class="figure">
-          <img src="assets/fig1_two_paradigms.png" alt="Figure 1 from the paper: topology of the uniform-physics and agentic paradigms" loading="lazy" decoding="async">
-          <figcaption>Figure 1. Left: passive assets contribute parameters to one central solve. Right: a society of agents interacting by typed message exchange, with the Director arbitrating.</figcaption>
-        </figure>
+        <div class="diagram" aria-label="Topology of the two paradigms">
+          <p class="diagram-label">Figure 1 · Topology</p>
+          <div class="diagram-split">
+            <div class="diagram-col">
+              <div class="hub-map">
+                <div class="node-ring">
+                  <span class="node-pill">cube</span>
+                  <span class="node-pill">book</span>
+                  <span class="node-pill">robot</span>
+                  <span class="node-pill">vase</span>
+                  <span class="node-pill">lamp</span>
+                </div>
+                <div class="hub-core">Global solver</div>
+              </div>
+              <h4>Uniform physics</h4>
+              <p>Passive assets send parameters to one solve. Intelligence is central.</p>
+            </div>
+            <div class="diagram-col">
+              <div class="director-chip">Director<span>environment agent</span></div>
+              <div class="hub-map">
+                <div class="node-ring">
+                  <span class="node-pill node-pill--agent">air</span>
+                  <span class="node-pill node-pill--agent">book</span>
+                  <span class="node-pill node-pill--agent">robot</span>
+                  <span class="node-pill node-pill--agent">vase</span>
+                  <span class="node-pill node-pill--agent">lamp</span>
+                </div>
+              </div>
+              <h4>Agentic</h4>
+              <p>Every object is an agent. Interaction is typed messages. Arbitration is thin.</p>
+            </div>
+          </div>
+        </div>
 
         <h2>Three theses</h2>
         <p>
@@ -132,10 +161,33 @@
           </div>
         </div>
 
-        <figure class="figure">
-          <img src="assets/fig2_paradigm_glance.png" alt="Figure 2 from the paper: the paradigm at a glance with Director, soul, senses, skills, and one-way mirror" loading="lazy" decoding="async">
-          <figcaption>Figure 2 from the paper. Every object carries a soul, a sensorium, and skills. Interactions are negotiated once, compiled, and enacted from cache. The learning agent stands behind a one-way mirror.</figcaption>
-        </figure>
+        <div class="diagram" aria-label="The paradigm at a glance">
+          <p class="diagram-label">Figure 2 · At a glance</p>
+          <div class="glance">
+            <div class="glance-director">Director</div>
+            <p class="figure-note" style="margin:0;">Clock, arbitration, invariants. The environment as an agent.</p>
+            <div class="glance-book">The object<span>soul, senses, skills</span></div>
+            <div class="glance-row">
+              <div class="glance-card glance-card--peach">
+                <h5>Soul</h5>
+                <p>Charter, personality, limits. Authorable in language.</p>
+              </div>
+              <div class="glance-card glance-card--lav">
+                <h5>Senses</h5>
+                <p>Tactile, kinematic, geometric. A sensorium of its own.</p>
+              </div>
+              <div class="glance-card glance-card--lav">
+                <h5>Skills</h5>
+                <p>Flutter, fall, thud, yield. Named behaviors over its degrees of freedom.</p>
+              </div>
+              <div class="glance-card glance-card--peach">
+                <h5>Negotiation</h5>
+                <p>PROPOSE, COMMIT, compile to cache. Once, not every timestep.</p>
+              </div>
+            </div>
+            <p class="glance-mirror"><strong>One-way mirror.</strong> The learning agent sees pixels, forces, and sound. Never a message.</p>
+          </div>
+        </div>
 
         <h2>Negotiate once, enact forever</h2>
         <p>
@@ -154,10 +206,47 @@
           </div>
         </div>
 
-        <figure class="figure">
-          <img src="assets/fig11_soul_architecture.png" alt="Figure 11 from the paper: SOUL architecture with Director, cognition plane, enactment plane, Chronicle, and host engine" loading="lazy" decoding="async">
-          <figcaption>Figure 11 from the paper. SOUL routes novel interactions through cognition, then replay through enactment. An invariant layer holds veto power. The host engine renders and runs classical solver islands only where escalation demands trajectory-level accuracy.</figcaption>
-        </figure>
+        <div class="diagram" aria-label="SOUL architecture">
+          <p class="diagram-label">Figure 11 · SOUL</p>
+          <div class="arch">
+            <div class="arch-box arch-box--dir">
+              <strong>Director</strong>
+              <span>Clock, arbitration, activation, natural-language interface</span>
+            </div>
+            <div class="arch-pair">
+              <div class="arch-box">
+                <strong>Field agents</strong>
+                <span>Air · gravity · light</span>
+              </div>
+              <div class="arch-box">
+                <strong>Object agents</strong>
+                <span>Soul + repertoire + cache</span>
+              </div>
+            </div>
+            <div class="arch-mid">
+              <div class="arch-box arch-box--inv">
+                <strong>Invariant layer</strong>
+                <span>Veto. A commitment that violates a never is refused.</span>
+              </div>
+              <div class="arch-box arch-box--cog">
+                <strong>Cognition plane</strong>
+                <span>Speech-act negotiation with an LLM. PROPOSE → COMMIT → validate → compile.</span>
+              </div>
+              <div class="arch-box arch-box--host">
+                <strong>Host engine</strong>
+                <span>Render and solver islands, only where escalation needs them.</span>
+              </div>
+            </div>
+            <div class="arch-box arch-box--act">
+              <strong>Enactment plane</strong>
+              <span>Compiled behavior programs at simulation rate. Trajectory generators and event emitters. No language model on the hot path.</span>
+            </div>
+            <div class="arch-box arch-box--log">
+              <strong>Chronicle</strong>
+              <span>Verbatim causal log of every episode. Replayable, queryable in natural language.</span>
+            </div>
+          </div>
+        </div>
 
         <h2>The one-way mirror</h2>
         <p>
@@ -216,12 +305,166 @@
               <p>Stick, slide, stop. Behavior that today requires solver-parameter search becomes a paragraph in a soul.</p>
             </div>
           </div>
-          <div class="case">
-            <img src="assets/case_teddy.jpg" alt="Deformable teddy bear" loading="lazy" decoding="async">
+          <div class="case case--clip">
+            <img src="assets/teddy_lift.gif" alt="Robot arm lifting a teddy bear" loading="lazy" decoding="async">
             <div class="body">
               <h3>Deformables</h3>
               <p>Teddy and cloth mark the hard boundary: escalate to classical solvers where task reward depends on dense contact.</p>
             </div>
+          </div>
+        </div>
+
+        <h2>What they said to each other</h2>
+        <p>
+          The Chronicle records every speech act in Lamport order. Peach is the object. Lavender is the arm. Grey lines are the runtime. Each episode is one language call that binds one process. Nothing here is paraphrased from a screenshot; the turns are reset in the page.
+        </p>
+
+        <div class="chat" aria-label="Teddy lift negotiation from the Chronicle">
+          <div class="chat-head">
+            <p class="k">Chronicle · teddy lift-20260918-200438</p>
+            <h3>The bear and the arm</h3>
+            <p>Model sonnet. Compiled 18 September 2026, 20:17 UTC. Seed teddy-lift-001.</p>
+          </div>
+          <div class="chat-log">
+            <p class="msg--sys">SENSE, INFORM (GRASP) standoff-1 · Lamport 1 · five sites; limb 45 mm; torso 137 mm; surface friction 35.0; mass 0.1 kg; stiffness 15,000 Pa</p>
+
+            <div class="msg msg--left">
+              <p class="msg-who">Bear · obj.teddy_bear_01 · initiating</p>
+              <div class="bubble bubble--peach">
+                <p class="act">PROPOSE (GRASP)</p>
+                <p class="meta">episode standoff-1 · Lamport 2</p>
+                <p>Here are the places you can take me: left foreleg, right haunch, head crown, left ear, torso waist. Thicknesses 45.0, 44.9, 55.5, 32.9, 137 mm. Approach from above. I am not closed yet.</p>
+                <p class="kv">
+                  <span>limb thickness</span> 0.045 m · <span>torso</span> 0.137 m · <span>collision fidelity</span> 0.085
+                </p>
+              </div>
+            </div>
+
+            <div class="msg msg--right">
+              <p class="msg-who">Arm · obj.franka_panda_deformable_01 · responding</p>
+              <div class="bubble bubble--lav">
+                <p class="act">COMMIT: Move</p>
+                <p class="meta">standoff-1 · signature b932f8a4 · one language call</p>
+                <p>I ran the five sites in order. Torso waist at 137 mm against my 81 mm open span is arithmetic, not judgment. Struck. The other four all solve to residuals near 0.1 mm.</p>
+              </div>
+            </div>
+
+            <p class="msg--sys">SENSE, INFORM (GRASP) grip-1 · Lamport 5 · plush close true: the bear asks to be held</p>
+
+            <div class="msg msg--left">
+              <p class="msg-who">Bear · initiating</p>
+              <div class="bubble bubble--peach">
+                <p class="act">PROPOSE (GRASP)</p>
+                <p class="meta">episode grip-1 · Lamport 6</p>
+                <p>Pads are down. Close.</p>
+              </div>
+            </div>
+
+            <div class="msg msg--right">
+              <p class="msg-who">Arm · responding</p>
+              <div class="bubble bubble--lav">
+                <p class="act">COMMIT: Move</p>
+                <p class="meta">grip-1 · signature 027a18d6</p>
+                <p>Head crown and right haunch offer more contact. The posture set I actually have numbers for is the 45 mm limb. I will not invent joint angles for a site I was not given a solution for.</p>
+              </div>
+            </div>
+
+            <div class="msg msg--right">
+              <p class="msg-who">Arm · initiating</p>
+              <div class="bubble bubble--lav">
+                <p class="act">PROPOSE (GRASP)</p>
+                <p class="meta">episode hold-1 · Lamport 8</p>
+                <p>Chosen site: right haunch. Grip width 7 mm. Gap 14 mm. Effective friction 18.5. Support 281.</p>
+                <p class="kv"><span>site thickness</span> 0.0449 m · <span>band overlap</span> 0.0387 m · <span>site confidence</span> 0.55</p>
+              </div>
+            </div>
+
+            <div class="msg msg--left">
+              <p class="msg-who">Bear · responding</p>
+              <div class="bubble bubble--peach">
+                <p class="act">COMMIT: Yield</p>
+                <p class="meta">hold-1 · signature 86fb0441 · dof z · magnitude 0</p>
+                <p>The gap is fourteen millimetres on a limb of 44.9. That is a deep bite, not a graze, and it is not my waist. Magnitude stays at zero. Consent is not a push. I will not fight a hold that has already caught me.</p>
+              </div>
+            </div>
+
+            <div class="msg msg--right">
+              <p class="msg-who">Arm · responding</p>
+              <div class="bubble bubble--lav">
+                <p class="act">COMMIT: Ease</p>
+                <p class="meta">raise-1 · signature ae56400d · 6.7 s · linear</p>
+                <p>Sag is 36 mm on a 45 mm limb. Recovery is 0.0002. I will not take your 0.085 m/s. I take this up at about 0.045 m/s so the shear rate stays low. The failure I am guarding against is peeling, not slip.</p>
+              </div>
+            </div>
+
+            <div class="msg msg--left">
+              <p class="msg-who">Bear · responding</p>
+              <div class="bubble bubble--peach">
+                <p class="act">COMMIT: Flop</p>
+                <p class="meta">land-1 · signature e171b907 · duration 1.1 s · emits lands soft</p>
+                <p>Released is released. I do not supply the fall. Magnitude stays at zero. What I bind is duration: a toy that stops dead the instant it lands reads as a prop.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat" aria-label="Cabinet drawer negotiation from the Chronicle">
+          <div class="chat-head">
+            <p class="k">Chronicle · franka drawer-20260913-194902</p>
+            <h3>The cabinet and the arm</h3>
+            <p>Nine language episodes. Peach is the cabinet. Lavender is the arm. The drawer travels 0.400 m.</p>
+          </div>
+          <div class="chat-log">
+            <div class="msg msg--right">
+              <p class="msg-who">Arm · obj.franka_panda_01 · initiating</p>
+              <div class="bubble bubble--lav">
+                <p class="act">PROPOSE (PULL)</p>
+                <p class="meta">episode draw-1 · Lamport 8</p>
+                <p>Grip width 7.9 mm. Interference 4.0 mm. Pull 0.167 m/s. Off-axis 4.3 mm. Reach margin 0.093 rad.</p>
+              </div>
+            </div>
+
+            <div class="msg msg--left">
+              <p class="msg-who">Cabinet · obj.sektion_cabinet_01 · responding</p>
+              <div class="bubble bubble--peach">
+                <p class="act">COMMIT: Yield</p>
+                <p class="meta">draw-1 · signature f4cea344 · magnitude 0 · max force 0</p>
+                <p>Off-axis is 4.3 mm against a 14 mm squareness tolerance. This is a square pull. I yield at zero magnitude: consent that a well-gripped pull will find my rails willing for the whole 400 mm, not a promise I am about to move myself.</p>
+              </div>
+            </div>
+
+            <p class="msg--sys">SENSE, INFORM (PULL) follow-2 · drawer open 0.2 of 0.4 m</p>
+
+            <div class="msg msg--right">
+              <p class="msg-who">Arm · responding</p>
+              <div class="bubble bubble--lav">
+                <p class="act">COMMIT: Move</p>
+                <p class="meta">follow-2 · signature a321f278</p>
+                <p>Half of travel. I drop w3 and w4 rather than spend joint travel I was not asked to spend. Fingers in holding at 5.0 mm, 6.9 mm of interference.</p>
+              </div>
+            </div>
+
+            <p class="msg--sys">SENSE, INFORM (PULL) follow-3 · drawer open 0.3 of 0.4 m</p>
+
+            <div class="msg msg--right">
+              <p class="msg-who">Arm · responding</p>
+              <div class="bubble bubble--lav">
+                <p class="act">COMMIT: Move</p>
+                <p class="meta">follow-3 · signature eda8b127</p>
+                <p>Three quarters of the rail. I scale the holding-to-w4 joint deltas to 75 percent and keep the original spacing, denser near the end. Final shoulder -1.575 rad, clear of the limit.</p>
+              </div>
+            </div>
+
+            <div class="msg msg--right">
+              <p class="msg-who">Arm · initiating</p>
+              <div class="bubble bubble--lav">
+                <p class="act">PROPOSE (RELEASE) then COMMIT: Move</p>
+                <p class="meta">release-1 · signature 0eb09f33 · let go</p>
+                <p>The drawer sits open 0.4 m. Residual load 4 N. I reopen the fingers at 35 mm only after the joints have already stopped.</p>
+              </div>
+            </div>
+
+            <p class="msg--sys">ENACT release-1 · end of Chronicle · 18 episodes, 45 messages, vetoes 0, escalations 0</p>
           </div>
         </div>
 
