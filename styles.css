@@ -987,6 +987,18 @@ a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-o
   flex-direction: column;
   gap: 0.55rem;
   padding: 0.85rem 0.75rem 1rem;
+  max-height: 20rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.chat-log:focus-visible {
+  outline: 1px solid var(--line);
+  outline-offset: -1px;
+}
+@media (max-width: 699px) {
+  .chat-log { max-height: 16rem; }
 }
 .msg { max-width: min(92%, 34rem); display: flex; flex-direction: column; gap: 0.18rem; }
 .msg--left { align-self: flex-start; }
