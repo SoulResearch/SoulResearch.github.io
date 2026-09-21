@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Everything Has a Soul · Soul Research</title>
-<meta name="description" content="Everything Has a Soul: a Soul Research position paper on agentic simulation, the SOUL architecture, and behavioral sufficiency." />
+<meta name="description" content="Everything Has a Soul: an architectural proposal for agentic simulation, with diagnostic traces from a first build and an evaluation program fixed ahead of its data." />
 <meta name="theme-color" content="#f6f5f2" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -57,14 +57,14 @@
     <div class="wrap">
       <div class="article-body">
         <p class="lede-block">
-          The document specifies an ontology, the SOUL reference architecture, measured household reference clips, and an evaluation program with falsification criteria for each thesis. It reports no benchmark results.
+          The document specifies an ontology, the SOUL reference architecture with its buildable specification, measurements of two real clips, five prototype case studies of a first build, and an evaluation program, fixed here in advance of the data that would test it, in which every thesis has a stated way to fail. The case studies are diagnostic rather than confirmatory. Nothing here establishes behavioral fidelity, a cost advantage, or policy transfer.
         </p>
 
         <p>
-          Open Isaac Sim, MuJoCo, Unity, or Unreal and import a cube. The workflow has been stable for decades. The cube receives mass, friction, restitution, roughness, luminosity. Those scalars are handed to one global solver that applies uniform physics to every body it steps. Interaction is whatever falls out of the solve. The object contributes parameters. Consequences are derived centrally.
+          Open Isaac Sim, MuJoCo, Unity, or Unreal and import a cube. The workflow has been stable for decades. The cube receives mass, friction, restitution, roughness, luminosity. Those scalars are handed to one global solver that applies uniform physics to every body it steps. Interaction is whatever falls out of the solve. The object contributes parameters. Consequences are derived centrally. Those parameters are not what this paper questions, and they do not go away: whatever governs an object still carries the same mass-like and friction-like quantities an asset always has. The question is architectural only: whether all computation of behavior must happen in one central solver, or whether it can be distributed across many coordinated agents, one per object, each responsible for its own.
         </p>
         <p>
-          That stack is a genuine achievement. Our question is architectural only: must all understanding of behavior live in one central solver, or can it be distributed across coordinated agents, one per object, each responsible for its own?
+          That stack is a genuine achievement: decades of contact modeling, integrator design, and GPU engineering. Everything this paper proposes runs on top of that inheritance. Our starting point is not that the design was wrong but that it was shaped by the resources of its time. When it was built, nothing in the loop could understand an object’s nature. What has changed is the arrival of machine intelligence that can read, write, and reason about behavior in natural language, per object and in real time. The classical stack, through no fault of its design, has no slot for it.
         </p>
 
         <div class="pull">
@@ -108,7 +108,7 @@
                 <text x="244" y="86" text-anchor="middle" fill="#1a1a18" font-size="10">book</text>
                 <text x="220" y="212" text-anchor="middle" fill="#1a1a18" font-size="10">lamp</text>
                 <text x="60" y="212" text-anchor="middle" fill="#1a1a18" font-size="10">robot</text>
-                <text x="36" y="86" text-anchor="middle" fill="#1a1a18" font-size="10">vase</text>
+                <text x="36" y="86" text-anchor="middle" fill="#1a1a18" font-size="9">vase</text>
               </svg>
               <h4>Uniform physics</h4>
               <p>Passive assets send parameters to one solve. Intelligence is central.</p>
@@ -152,6 +152,47 @@
               <p>Every object is an agent. Solid arrows are messages. Dashed lines are thin arbitration.</p>
             </div>
           </div>
+          <table class="eval-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Uniform physics</th>
+                <th>Agentic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ontology</td>
+                <td>Mesh and a parameter block</td>
+                <td>Agent and a soul: charter, repertoire, constraints</td>
+              </tr>
+              <tr>
+                <td>Behavior</td>
+                <td>Central solver</td>
+                <td>Distributed across object and field agents</td>
+              </tr>
+              <tr>
+                <td>Interaction</td>
+                <td>Global coupled solve</td>
+                <td>Typed messages, natural-language payloads</td>
+              </tr>
+              <tr>
+                <td>Fidelity</td>
+                <td>Trajectory-level state accuracy</td>
+                <td>Distribution-level behavioral accuracy</td>
+              </tr>
+              <tr>
+                <td>Authoring</td>
+                <td>Rigging and parameter archaeology</td>
+                <td>A behavioral specification: a soul</td>
+              </tr>
+              <tr>
+                <td>Editing</td>
+                <td>Solver-parameter search</td>
+                <td>One conversational instruction</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <h2>Three theses</h2>
@@ -176,6 +217,10 @@
             <p>Solvers grow with every awake body. Societies escape through locality and amortization: negotiate once, then replay from cache as novelty decays.</p>
           </div>
         </div>
+
+        <p>
+          <strong>The primary hypothesis</strong> is narrower than the ontology, and it is the one the paper stakes itself on. At matched behavioral quality and matched host resources, object-local negotiation with caching lowers the total cost of authoring and running a behaviorally rich world, relative to a centralized language-assisted compiler drawing on the same template library and the same assets. Total cost is authoring hours plus model spend plus runtime, counted from a cold start, with failed attempts, integration, and debugging included. E2 and E3 are what would test it. A result in which the centralized compiler matches or beats SOUL at equal quality kills the economic case for this architecture while leaving Theses 1 and 2 untouched.
+        </p>
 
         <h2>Soul, senses, skills</h2>
         <p>
@@ -288,7 +333,7 @@
             </div>
             <div class="arch-box arch-box--log">
               <strong>Chronicle</strong>
-              <span>Verbatim causal log of every episode. Replayable, queryable in natural language.</span>
+              <span>Verbatim causal log of every episode. Replayable, queryable in natural language. Ground truth about what the simulation did, and only as true about the world as the souls that wrote it.</span>
             </div>
           </div>
         </div>
@@ -313,7 +358,7 @@
 
         <h2>What the footage says</h2>
         <p>
-          Part II of the paper works ordinary household objects as case studies: sanitizer bottle, table lamp, cabinet drawer, deformable teddy bear, and cloth. Measured clips fix reference behaviors the system must reproduce. Authored souls and negotiations show how those behaviors are declared. No result about the built system is claimed as a benchmark.
+          The case studies report no validated result. They report traces of a first, partial build. Two objects, the sanitizer bottle and the table lamp, have reference footage: numbers about the world, not about SOUL. Their generated half exists too, one Isaac Sim enactment apiece, phase-matched or state-matched to the footage rather than driven by its stimulus train. The three Franka studies (cabinet, teddy, cloth) have no reference clip, so they compare what was declared and negotiated with what the simulator ran. Every artifact is labeled. <span class="ev ev--m">measured</span> is a number about the world. <span class="ev ev--a">authored</span> is a soul, a scenario, an input. <span class="ev ev--g">generated</span> is a transcript, a plan, a rendered film. The case studies are diagnostic. They expose where the chain from a negotiated commitment to executed physics does not yet close.
         </p>
 
         <div class="case-grid">
@@ -321,21 +366,21 @@
             <img src="assets/bottle_press.gif" alt="Sanitizer pump cap compressing under a finger" width="560" height="317" loading="lazy" decoding="async">
             <div class="body">
               <h3>Sanitizer bottle</h3>
-              <p>Measured actuation. Behavior is compact: press, dispense, click, recover.</p>
+              <p><span class="ev ev--m">measured</span> Six presses on a 20.2 s clip. Mean stroke 9.3 px, CV 0.16. Gel leaves the nozzle at every depth. <span class="ev ev--g">generated</span> One negotiated press on Isaac Sim. PRESSDOWN was bound. The dose never fired. Nothing pressed the bottle.</p>
             </div>
           </div>
           <div class="case case--clip">
             <img src="assets/lamp_toggle.gif" alt="Table lamp switching on and off" width="560" height="315" loading="lazy" decoding="async">
             <div class="body">
               <h3>Table lamp</h3>
-              <p>Switch toggles luminous state. The light field agent responds. A simple discrete mode with graded appearance.</p>
+              <p><span class="ev ev--m">measured</span> A field channel: one state bit consumed by every surface at once. <span class="ev ev--g">generated</span> Flux, tint, and mass written on Isaac Sim. The comparison is state-matched, not stimulus-matched. Nothing in it is a fidelity result.</p>
             </div>
           </div>
         </div>
 
         <h2>What they said to each other</h2>
         <p>
-          The Chronicle records every speech act in Lamport order. Peach is the object. Lavender is the arm. Grey lines are the runtime. Each episode is one language call that binds one process. The clip sits on the negotiation it produced.
+          The Chronicle records every speech act in Lamport order. Peach is the object. Lavender is the arm. Grey lines are the runtime. Each episode is one language call that binds one process. The clip sits on the negotiation it produced. Where a bubble names a different site than the prose, that is a disagreement in the record, not an editing artifact.
         </p>
 
         <div class="study">
@@ -430,7 +475,7 @@
             </div>
           </div>
         </div>
-        <p class="figure-note">Teddy marks the hard boundary: escalate to a solver where task reward depends on dense contact.</p>
+        <p class="figure-note">Teddy marks the hard boundary: escalate to a solver where task reward depends on dense contact. None of the bear’s personality reached the simulator through the seam this paper describes.</p>
         </div>
 
         <div class="study">
@@ -496,17 +541,66 @@
             <p class="msg--sys">ENACT release-1 · end of Chronicle · 18 episodes, 45 messages, vetoes 0, escalations 0</p>
           </div>
         </div>
-        <p class="figure-note">Stick, slide, stop. Behavior that today requires solver-parameter search becomes a paragraph in a soul.</p>
+        <p class="figure-note">Stick, slide, stop. Behavior that today requires solver-parameter search becomes a paragraph in a soul. The film is a replay of recorded commitments. It is not a measurement against the world.</p>
         </div>
+
+        <h2>What the first build showed</h2>
+        <p>
+          The integration failures are the paper’s most reliable empirical content. Of the five objects, zero of the cloth sheet’s six declared material properties and zero of the teddy bear’s seven reached the simulator. Of the cabinet drawer’s three declared routes none was wired, and the one quantity where a declared and an enacted value both exist differs by a factor of five. Every run records zero vetoes and zero escalations: a coverage fact, not a compliance fact, because the constraints were largely unevaluated. In the one case where an agent refused on a constraint, the host opened the gripper anyway, on a fixed phase of the shoot script. A refusal the execution layer can ignore is a recorded intention, not enforcement. Every statement in the architecture about a soul governing physical behavior should be read against that.
+        </p>
+
+        <div class="infographic">
+          <p class="infographic-label">Defect register</p>
+          <h3 class="infographic-title">Declared, negotiated, enacted</h3>
+          <table class="eval-table">
+            <thead>
+              <tr>
+                <th>Object</th>
+                <th>Closed</th>
+                <th>Did not close</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bottle</td>
+                <td>One PRESSDOWN on Isaac Sim. Mass written.</td>
+                <td>No dose. Nothing pressed it. Three joint routes refused: the host looked up pump by name and did not consult the dof map.</td>
+              </tr>
+              <tr>
+                <td>Lamp</td>
+                <td>Flux, tint, and mass written. Every surface patch steps in the same frame as the source.</td>
+                <td>The laptop compiler and the GPU host disagree about what the host can write. Comparison is state-matched, not stimulus-matched.</td>
+              </tr>
+              <tr>
+                <td>Cabinet</td>
+                <td>Travel 0.400 m consented. Nine language calls, then replay from cache. Joint follow ≥0.9992.</td>
+                <td>Three routes unwired. Rail damping 1.0 N s/m declared, 5 N s/m run. Negotiated grip not carried into the film.</td>
+              </tr>
+              <tr>
+                <td>Teddy</td>
+                <td>YIELD, then FLOP. The site consented to is a limb.</td>
+                <td>Zero of seven properties reached physics. Stiffness and friction, the two the negotiation turned on, cannot get out. Lift 6.7 s negotiated, 2.5 s filmed.</td>
+              </tr>
+              <tr>
+                <td>Cloth</td>
+                <td>Consent in hold-1 is a check of two numbers against two geometries. A refusal is recorded on open-1.</td>
+                <td>Zero of six properties. The host opened the gripper on a fixed schedule. Four cues carry null sinks.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          The architecture’s contribution is that the number is countable. Every route is declared in a soul. Every unwired route is reported by the plan compiler and the scenario check. Every constant that took a route’s place is in a script under version control.
+        </p>
 
         <h2>A single escalation rule</h2>
         <p>
-          Trajectory-level physics is not retired. It becomes a budgeted resource. Ambient content can run hot: any plausible ruffle is a correct ruffle. Task-critical contact runs cold. Escalation collapses the distribution to a solver island for the duration of criticality. Physics where it matters. Behavior everywhere else.
+          Trajectory-level physics is not retired. It becomes a budgeted resource. Ambient content can run hot: any plausible ruffle is a correct ruffle. Task-critical contact runs cold. Escalation collapses the distribution to a solver island for the duration of criticality. Physics where it matters. Behavior everywhere else. The first build records zero escalations. That is the same coverage fact as the zero vetoes: nothing had the opportunity to fire.
         </p>
 
         <h2>Evaluation program</h2>
         <p>
-          Every thesis has pre-registered success targets and falsification criteria. The Ruffle Test asks whether agentic worlds are indistinguishable in distribution from real or solver references at behavior level. Authoring, amortization, transfer, grounding, and openness are specified the same way.
+          This paper reports no controlled experiment. The protocol that would run one is fixed here, before the data that would test it exists. Runtime correctness, model validity, and learning validity are three layers. No result in one is spent as evidence in another. All raters blind. All seeds and Chronicles released.
         </p>
 
         <div class="infographic">
@@ -517,34 +611,49 @@
               <tr>
                 <th>Test</th>
                 <th>Targets</th>
-                <th>Falsification</th>
+                <th>Kill condition</th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <td>E0 Loop</td>
+                <td>Compiler correctness at image-plane scale, no host engine</td>
+                <td>Commitments a frontier model cannot make admissible, or descriptors their own source clips reject</td>
+              </tr>
+              <tr>
                 <td>E1 Ruffle Test</td>
-                <td>Behavioral sufficiency</td>
-                <td>Reliable detection; discriminators fail to stay near chance</td>
+                <td>Behavioral indistinguishability on matched-stimulus pairs</td>
+                <td>Reliable detection, human or machine, in a majority of classes</td>
               </tr>
               <tr>
                 <td>E2 Authoring</td>
-                <td>Editability in few turns</td>
-                <td>Parity with expert parameter tuning</td>
+                <td>Editability in few turns versus expert parameter tuning</td>
+                <td>Parity with expert tuning</td>
               </tr>
               <tr>
                 <td>E3 Amortization</td>
-                <td>LLM cost decays with cache</td>
-                <td>Sustained cognition cost or rising artifacts</td>
+                <td>LLM cost decays with cache; step cost tracks the active set</td>
+                <td>Sustained cognition cost, superlinear scaling, or artifacts ≥5%</td>
               </tr>
               <tr>
                 <td>E4 Transfer</td>
-                <td>Policies trained in agentic worlds</td>
-                <td>Systematic deficit versus solver baselines</td>
+                <td>Policies trained in agentic worlds, equal lifecycle cost</td>
+                <td>Systematic deficit versus a fully tooled classical baseline</td>
+              </tr>
+              <tr>
+                <td>E5 Topology</td>
+                <td>Brokered versus peer versus hybrid; privileged guidance distilled away</td>
+                <td>Pure brokering scales without penalty, or guidance fails to survive distillation</td>
               </tr>
               <tr>
                 <td>E6 Grounding</td>
-                <td>Souls as priors pinned by footage</td>
-                <td>Grounded models no better than prior out of sample</td>
+                <td>Souls as priors pinned by footage, ≤20 clips per class</td>
+                <td>Grounded models no better than prior-only out of sample</td>
+              </tr>
+              <tr>
+                <td>E7 Unseen</td>
+                <td>Charter-conditioned response to interactions never enumerated</td>
+                <td>No more plausible than a hand-authored behavior tree</td>
               </tr>
             </tbody>
           </table>
@@ -552,21 +661,18 @@
 
         <h2>Scope of the claim</h2>
         <p>
-          We do not claim language-mediated behavior matches solver physics at trajectory level. We claim that at behavior level, agentic worlds can be made indistinguishable in distribution for broad classes of everyday interaction; that policies trained in such worlds can transfer no worse where behavioral richness matters; and that the cost of a populated, authored world falls as negotiation amortizes into playback.
+          We do not claim language-mediated behavior matches solver physics at trajectory level. We do not claim this build is constraint-respecting, or that a soul currently governs physical behavior through the seam the architecture describes. We claim that at behavior level, agentic worlds can be made indistinguishable in distribution for broad classes of everyday interaction; that policies trained in such worlds can transfer no worse where behavioral richness matters; and that the cost of a populated, authored world falls as negotiation amortizes into playback. Each of those claims has a named experiment that can kill it. SOUL is offered as an architectural proposal carrying diagnostic prototype evidence, specified to the point of falsifiability and not yet tested against its own criteria.
         </p>
 
         <h2>Conclusion</h2>
         <p>
-          The uniform-physics stack asks one solver to understand every object. That is the right default for contact that must be true at trajectory level. It is the wrong default for the rest of a household: the book that flutters, the bottle that clicks, the drawer that yields, the bear that compresses. Those are behaviors. They belong to the object.
+          The uniform-physics simulator hands every object a mass and a friction coefficient and asks a single solver to think for the whole world. We have argued for its inversion: give every object a soul, senses in its own form, and a repertoire of skills (at which point everything is a robot) and let the world think for itself. Interaction is a closed sensorimotor loop carried over a typed protocol. Language is the compiler of dynamics rather than its interpreter. A thin layer of inviolable physics holds veto over an otherwise negotiated world. The one agent kept innocent of all of it is the robot being trained, which perceives nothing a real robot could not. The flowers must ruffle. Which petal goes where is nobody’s business.
         </p>
         <p>
-          The agentic ontology makes that assignment explicit. Every object carries a soul, senses, and skills. Novel interaction is negotiated once in language, compiled into a cache, and replayed. Physics remains as a budgeted island when a commitment is not enough. The learning agent never sees the conversation. It sees pixels, forces, and sound.
+          What would stand between this position and a paradigm is execution: a Ruffle Test that meets its pre-registered criteria; an authoring study that times the wall coming down; an amortization run that shows the language bill decaying toward zero; and one robot, trained behind the one-way mirror of a talkative world, that transfers to the real one as well or better at equal lifecycle cost. That is the program. The first build’s job was to leave the seam visible. The next work is to close it, then ask whether the resulting worlds are sufficient for robots that must act with care.
         </p>
         <p>
-          We have specified the ontology, the SOUL architecture, measured reference clips, and the tests that would falsify the three theses. We have not reported those tests. That is the next work: author souls, negotiate, enact, and ask whether the resulting worlds are sufficient for robots that must act with care.
-        </p>
-        <p>
-          If they are, a populated world becomes cheaper as it becomes more familiar, and a machine that understands the objects around it is easier to keep predictable around people. That is the view of the field this program is meant to serve.
+          The equations of motion will keep governing the parts of the world that need them. For the rest, we propose giving the world’s things souls, and letting them speak for themselves.
         </p>
 
         <p class="article-end">

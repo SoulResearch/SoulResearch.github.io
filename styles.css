@@ -753,6 +753,29 @@ a:focus-visible, .brand:focus-visible { outline: 2px solid var(--ink); outline-o
 .eval-table td { color: var(--muted); }
 .eval-table td:first-child { color: var(--ink); font-weight: 500; white-space: nowrap; }
 
+.ev {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.04rem 0.3rem;
+  border: 1px solid var(--line);
+  margin-right: 0.2rem;
+  vertical-align: 0.05em;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.ev--m { background: #f3eadc; }
+.ev--a { background: #f3d5c0; }
+.ev--g { background: #dcd6ea; }
+
+.diagram .eval-table { margin-top: 0.85rem; }
+
+@media (max-width: 699px) {
+  .eval-table td:first-child { white-space: normal; }
+}
+
 .pull {
   margin: 0.85rem 0;
   padding: 0.65rem 0;
