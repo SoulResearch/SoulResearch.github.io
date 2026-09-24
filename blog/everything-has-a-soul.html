@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Everything Has a Soul · Soul Research</title>
-<meta name="description" content="Everything Has a Soul: an architectural proposal for agentic simulation, with diagnostic traces from a first build and an evaluation program fixed ahead of its data." />
+<meta name="description" content="Everything Has a Soul: every simulated object is an agent. Language compiles the world’s dynamics. An evaluation program is pre-registered ahead of its data." />
 <meta name="theme-color" content="#f6f5f2" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
@@ -57,14 +57,14 @@
     <div class="wrap">
       <div class="article-body">
         <p class="lede-block">
-          The document specifies an ontology, the SOUL reference architecture with its buildable specification, measurements of two real clips, five prototype case studies of a first build, and an evaluation program, fixed here in advance of the data that would test it, in which every thesis has a stated way to fail. The case studies are diagnostic rather than confirmatory. Nothing here establishes behavioral fidelity, a cost advantage, or policy transfer.
+          Most simulators share one ontology: an asset is a passive body with scalars attached, and one global solver computes what happens to it. This paper relaxes one assumption: that all understanding of behavior lives there. Every object has its own agent, instantiated from a soul: a natural-language charter of what it is, what it can do and within what limits, with a sensorium of what it can read and behaviors over its own degrees of freedom. An object with all three is functionally a robot, and its charter replaces parameter tuning. Language compiles the world’s dynamics rather than interpreting them. Cognition is paid per novel situation, not per timestep. The central claim names its own baseline: at matched behavioral quality and host resources, object-local negotiation with caching lowers the lifecycle cost of a behaviorally rich world against a centralized language-assisted compiler on the same templates and assets. The evaluation program is pre-registered ahead of its data. The wager is that the binding constraint on embodied learning can move from data toward compute, and a training world becomes something you fork, seed, and replay.
         </p>
 
         <p>
           Open Isaac Sim, MuJoCo, Unity, or Unreal and import a cube. The workflow has been stable for decades. The cube receives mass, friction, restitution, roughness, luminosity. Those scalars are handed to one global solver that applies uniform physics to every body it steps. Interaction is whatever falls out of the solve. The object contributes parameters. Consequences are derived centrally. Those parameters are not what this paper questions, and they do not go away: whatever governs an object still carries the same mass-like and friction-like quantities an asset always has. The question is architectural only: whether all computation of behavior must happen in one central solver, or whether it can be distributed across many coordinated agents, one per object, each responsible for its own.
         </p>
         <p>
-          That stack is a genuine achievement: decades of contact modeling, integrator design, and GPU engineering. Everything this paper proposes runs on top of that inheritance. Our starting point is not that the design was wrong but that it was shaped by the resources of its time. When it was built, nothing in the loop could understand an object’s nature. What has changed is the arrival of machine intelligence that can read, write, and reason about behavior in natural language, per object and in real time. The classical stack, through no fault of its design, has no slot for it.
+          That stack is a genuine achievement: decades of contact modeling, integrator design, and GPU engineering. Everything this paper proposes runs on top of that inheritance. Our starting point is not that the design was wrong but that it was shaped by the resources of its time. When it was built, nothing in the loop could understand an object’s nature. What has changed is the arrival of machine intelligence that can read, write, and reason about behavior in natural language, per object and in real time. The classical stack, through no fault of its design, has no slot for it. The economics moved as well: authoring time is now the bottleneck of embodied AI, while foundation models supply a new resource, behavioral prior knowledge. We read this as an opportunity to extend the stack the field built, not as an indictment of it.
         </p>
 
         <div class="pull">
@@ -204,7 +204,7 @@
           <div class="thesis">
             <p class="num">Thesis 01</p>
             <h3>Behavioral sufficiency</h3>
-            <p>For robot learning, the fidelity target is a distribution over task-relevant behavior, not a petal-exact trajectory. The flowers must ruffle; fine-grained petal paths are not required.</p>
+            <p>For robot learning, the fidelity target is a distribution over task-relevant behavior, not a petal-exact trajectory. Two runs from imperceptibly different states diverge, so there is no single right path to reproduce. The flowers must ruffle.</p>
           </div>
           <div class="thesis">
             <p class="num">Thesis 02</p>
@@ -358,7 +358,10 @@
 
         <h2>What the footage says</h2>
         <p>
-          The case studies report no validated result. They report traces of a first, partial build. Two objects, the sanitizer bottle and the table lamp, have reference footage: numbers about the world, not about SOUL. Their generated half exists too, one Isaac Sim enactment apiece, phase-matched or state-matched to the footage rather than driven by its stimulus train. The three Franka studies (cabinet, teddy, cloth) have no reference clip, so they compare what was declared and negotiated with what the simulator ran. Every artifact is labeled. <span class="ev ev--m">measured</span> is a number about the world. <span class="ev ev--a">authored</span> is a soul, a scenario, an input. <span class="ev ev--g">generated</span> is a transcript, a plan, a rendered film. The case studies are diagnostic. They expose where the chain from a negotiated commitment to executed physics does not yet close.
+          The five objects were chosen to show the idea at its smallest: a press, a switch, a pull, a lift, a pinch. They test the protocol and the authoring path, not behavioral sufficiency. Every behavior enacted is a governed deterministic template: a ramp, an impulse, a finite-state machine over solved postures. No object binds a stochastic process. No broadcast field agent (air, gravity, light) runs in any recording. A commitment that binds a deterministic process is not evidence for Thesis 1. What the recordings show is narrower: a charter-conditioned agent selects a behavior and binds its parameters; the runtime computes positions from those parameters with no model in the loop; and where this fails, the failure is legible, countable, and traceable to a named line in a named file. Reading them as evidence of fidelity, of the lifecycle-cost hypothesis, or of transfer would be reading them for something they were not built to carry.
+        </p>
+        <p>
+          Two objects, the sanitizer bottle and the table lamp, have reference footage: numbers about the world, not about SOUL. Their generated half exists too, one Isaac Sim enactment apiece, aligned by phase for the bottle and by state for the lamp, not by the footage’s own stimulus train, and neither pair is the matched-stimulus test the evaluation program requires. The three Franka studies (cabinet, teddy, cloth) have no reference clip, so they compare what was declared and negotiated with what the simulator ran. Every conversation is a recording. None is an authored reconstruction. Every artifact is labeled. <span class="ev ev--m">measured</span> is a number about the world. <span class="ev ev--a">authored</span> is a soul, a scenario, an input. <span class="ev ev--g">generated</span> is a transcript, a plan, a rendered film.
         </p>
 
         <div class="case-grid">
@@ -373,7 +376,7 @@
             <img src="assets/lamp_toggle.gif" alt="Table lamp switching on and off" width="560" height="315" loading="lazy" decoding="async">
             <div class="body">
               <h3>Table lamp</h3>
-              <p><span class="ev ev--m">measured</span> A field channel: one state bit consumed by every surface at once. <span class="ev ev--g">generated</span> Flux, tint, and mass written on Isaac Sim. The comparison is state-matched, not stimulus-matched. Nothing in it is a fidelity result.</p>
+              <p><span class="ev ev--m">measured</span> One state bit consumed by every surface at once. <span class="ev ev--g">generated</span> Flux, tint, and mass written on Isaac Sim. State-matched, not stimulus-matched. The broadcast light agent does not run.</p>
             </div>
           </div>
         </div>
@@ -546,7 +549,7 @@
 
         <h2>What the first build showed</h2>
         <p>
-          The integration failures are the paper’s most reliable empirical content. Of the five objects, zero of the cloth sheet’s six declared material properties and zero of the teddy bear’s seven reached the simulator. Of the cabinet drawer’s three declared routes none was wired, and the one quantity where a declared and an enacted value both exist differs by a factor of five. Every run records zero vetoes and zero escalations: a coverage fact, not a compliance fact, because the constraints were largely unevaluated. In the one case where an agent refused on a constraint, the host opened the gripper anyway, on a fixed phase of the shoot script. A refusal the execution layer can ignore is a recorded intention, not enforcement. Every statement in the architecture about a soul governing physical behavior should be read against that.
+          The integration failures are counted, addressed, and left visible rather than repaired in prose. Of the five objects, zero of the cloth sheet’s six declared material properties and zero of the teddy bear’s seven reached the simulator. Of the cabinet drawer’s three declared routes none was wired, and the one quantity where a declared and an enacted value both exist differs by a factor of five. Every run records zero vetoes and zero escalations: a coverage fact, not a compliance fact, because the constraints were largely unevaluated. In the one case where an agent refused on a constraint, the host opened the gripper anyway, on a fixed phase of the shoot script. A refusal the execution layer can ignore is a recorded intention, not enforcement. Every statement in the architecture about a soul governing physical behavior should be read against that.
         </p>
 
         <div class="infographic">
@@ -659,9 +662,14 @@
           </table>
         </div>
 
+        <h2>Where it sits</h2>
+        <p>
+          Nearby programs put a language model at build time and keep a uniform-physics runtime. One writes a task that a classical engine then executes. This architecture places the model inside the runtime that governs the object. Latent world models arrive at the same economy from the other side: discard whatever the task does not read. An object-level layer is where those programs could attach, if the tests above hold.
+        </p>
+
         <h2>Scope of the claim</h2>
         <p>
-          We do not claim language-mediated behavior matches solver physics at trajectory level. We do not claim this build is constraint-respecting, or that a soul currently governs physical behavior through the seam the architecture describes. We claim that at behavior level, agentic worlds can be made indistinguishable in distribution for broad classes of everyday interaction; that policies trained in such worlds can transfer no worse where behavioral richness matters; and that the cost of a populated, authored world falls as negotiation amortizes into playback. Each of those claims has a named experiment that can kill it. SOUL is offered as an architectural proposal carrying diagnostic prototype evidence, specified to the point of falsifiability and not yet tested against its own criteria.
+          We do not claim language-mediated behavior matches solver physics at trajectory level. We do not claim this build is constraint-respecting, or that a soul currently governs physical behavior through the seam the architecture describes. None of the five objects binds a stochastic behavior, and no broadcast field agent runs in any recording, so the case studies are not evidence for Thesis 1, for the lifecycle-cost hypothesis, or for transfer. We claim that at behavior level, agentic worlds can be made indistinguishable in distribution for broad classes of everyday interaction; that policies trained in such worlds can transfer no worse where behavioral richness matters; and that the cost of a populated, authored world falls as negotiation amortizes into playback. Each of those claims has a named experiment that can kill it. The wager, if the links hold, is that the binding constraint on some embodied-learning workloads can move from data toward compute: a training world becomes something you fork, seed, and replay.
         </p>
 
         <h2>Conclusion</h2>
@@ -669,7 +677,7 @@
           The uniform-physics simulator hands every object a mass and a friction coefficient and asks a single solver to think for the whole world. We have argued for its inversion: give every object a soul, senses in its own form, and a repertoire of skills (at which point everything is a robot) and let the world think for itself. Interaction is a closed sensorimotor loop carried over a typed protocol. Language is the compiler of dynamics rather than its interpreter. A thin layer of inviolable physics holds veto over an otherwise negotiated world. The one agent kept innocent of all of it is the robot being trained, which perceives nothing a real robot could not. The flowers must ruffle. Which petal goes where is nobody’s business.
         </p>
         <p>
-          What would stand between this position and a paradigm is execution: a Ruffle Test that meets its pre-registered criteria; an authoring study that times the wall coming down; an amortization run that shows the language bill decaying toward zero; and one robot, trained behind the one-way mirror of a talkative world, that transfers to the real one as well or better at equal lifecycle cost. That is the program. The first build’s job was to leave the seam visible. The next work is to close it, then ask whether the resulting worlds are sufficient for robots that must act with care.
+          What would stand between this position and a paradigm is execution: a Ruffle Test that meets its pre-registered criteria in an open sandbox anyone can run; an authoring study that times the wall coming down; an amortization run that shows the language bill decaying toward zero; and one robot, trained behind the one-way mirror of a talkative world, that transfers to the real one as well or better at equal lifecycle cost. That is the program. The next document reports those tests exactly as pre-registered, failures included.
         </p>
         <p>
           The equations of motion will keep governing the parts of the world that need them. For the rest, we propose giving the world’s things souls, and letting them speak for themselves.
